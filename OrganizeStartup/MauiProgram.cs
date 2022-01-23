@@ -1,4 +1,6 @@
-﻿namespace OrganizeStartup;
+﻿using OrganizeStartup.Extensions;
+
+namespace OrganizeStartup;
 
 public static class MauiProgram
 {
@@ -7,10 +9,9 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
-			.ConfigureFonts(fonts =>
-			{
-				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-			});
+			.RegisterFonts()
+			.RegisterHandlers()
+			.RegisterServices();
 
 		return builder.Build();
 	}
